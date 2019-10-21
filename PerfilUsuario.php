@@ -1,6 +1,7 @@
 <?php
 require_once 'UserController.php';
 session_start();
+$data = obtenerInformacion($_SESSION['idu']);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -18,7 +19,7 @@ session_start();
     <body>
 
         <header class="menu">
-            <a href="index.html" class="logo">
+            <a href="index.php" class="logo">
                 <h2>MySound</h2>
             </a>
             <nav class="options">
@@ -38,15 +39,15 @@ session_start();
 			<img src="resource/images/headphones.jpg">
 			</br>
 			
-			<textarea id="A" class="user-Info-input" disabled="true" spellcheck="false">Super Rock Star</textarea>
+			<textarea id="A" class="user-Info-input" disabled="true" spellcheck="false"><?php echo $data['u5hwo4'];?></textarea>
 			<button id="1" type="button" onclick="actualiza(this)"><label class="lnr lnr-pencil"></label></button>	
 			
-			<span>@<?php echo $_SESSION['account']; ?></span>
+			<span>@<?php echo $_SESSION['idu']; ?></span>
 			<button id="1-1" type="button" onclick="actualiza(this)" style="margin-left:125px; margin-top:10px; visibility:hidden;"><label class="lnr lnr-upload"></label></button>	
 					
 			</br></br>
 			
-			<textarea id="B" class="user-Info-input" disabled="true" style="font-weight:normal;" spellcheck="false" >México</textarea>
+			<textarea id="B" class="user-Info-input" disabled="true" style="font-weight:normal;" spellcheck="false" ><?php echo $data['u5ybn4'];?></textarea>
 			<button id="2" type="button" onclick="actualiza(this)"><label class="lnr lnr-pencil"></label></button>	
 			<button id="2-1" type="button" onclick="actualiza(this)" style="margin-left:245px; margin-top:5px; visibility:hidden;"><label class="lnr lnr-upload"></label></button>	
 		
@@ -68,10 +69,10 @@ session_start();
 		<div class="container-User-Tracks">
 			<span class="music-title" style="float:left;">Tracks</span>
 			</br></br></br>
-			<a href="crear-audio.php">Crear track</a>
 			<?php
 				$reply = obtenerTracks($_SESSION['idu']);
 				if($reply) {
+					echo '<a href="crear-audio.php">Crear track</a>';
 					foreach ($reply as $track) {
 						echo '
 						<div class="container-track-profile" style="margin-top: 1rem;">
@@ -79,7 +80,8 @@ session_start();
 							<div class="info-track-profile">
 								<h3>'.$track->t5prc4.'</h3>
 								<p>'.$track->t5zpw1.'</p>
-								<i class="start material-icons">play_arrow</i>
+								<i class="btn-play material-icons">play_arrow</i>
+								<input class="path" type="hidden" value="'.$track->t5tlc3.'">
 							</div>
 						</div>
 						';	
@@ -97,10 +99,6 @@ session_start();
 			</br></br></br>
 			<span style="color:#26283F;">Aún no tienes playlists creados</span>
 		</div>
-		
-		<audio controls >
-			<source src="audios/Time.mp3" type="audio/mp3">
-		</audio>
 		<!-- Reproductor Música -->
 		<div class="music-control">
 			<i class="material-icons">skip_previous</i>
@@ -108,6 +106,7 @@ session_start();
 			<i class="material-icons">skip_next</i>
 			<div class="progress"></div>
 			<i class="material-icons">volume_up</i>
+			<audio id="reproductor"></audio>
 		</div>
 
 		
@@ -120,7 +119,7 @@ session_start();
 			</div>
 		</div>
 		
-
+		<script src="resource/js/play.js"></script>
 		<script>
 			function actualiza(button) {
 				var x = button.id;

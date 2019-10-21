@@ -99,7 +99,7 @@ function guardarTrack($data) {
     $data['audio'] = $data['idusuario'].$data['titulo'].'.mp3';
     $data['portada'] = $data['idusuario'].$data['titulo'].'.png';
     if (move_uploaded_file($audio['tmp_name'], $file_audio) && move_uploaded_file($portada['tmp_name'], $file_portada)) {
-        $query = "INSERT INTO t5fjs0w (t5isk2,t5qwd7,t5prc4,t5jsi8,t5iwj7,t5tlc3,t5jds0,t5zpw1,t5oin7) VALUES (DEFAULT, ".$data['idusuario'].", '".$data['titulo']."', NULL, 0, '".$dir_audio.$data['audio']."', '".$dir_portada.$data['portada']."', '".$data['genero']."', '".$data['desc']."')";
+        $query = "INSERT INTO t5fjs0w (t5isk2,t5qwd7,t5prc4,t5jsi8,t5iwj7,t5tlc3,t5jds0,t5zpw1,t5oin7) VALUES (DEFAULT, '".$data['idusuario']."', '".$data['titulo']."', NULL, 0, '".$dir_audio.$data['audio']."', '".$dir_portada.$data['portada']."', '".$data['genero']."', '".$data['desc']."')";
         $db = new DB();
         $db->insert($query);
     }

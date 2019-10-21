@@ -7,12 +7,17 @@
 	if(isset($_POST['btn_registrar'])) {
 		
 		$name = (isset($_POST['nombreUsuario'])) ? $_POST['nombreUsuario'] : null;
-		$mail = (isset($_POST['correo'])) ? $_POST['correo'] : null;
+		$artistName = (isset($_POST['nombreArtistico'])) ? $_POST['nombreArtistico'] : null;
+		$email = (isset($_POST['correo'])) ? $_POST['correo'] : null;
 		$psw1 = (isset($_POST['password'])) ? $_POST['password'] : null;
 		$psw2 = (isset($_POST['confirmedPassword'])) ? $_POST['confirmedPassword'] : null;
 		$gender = (isset($_POST['sexo'])) ? $_POST['sexo'] : null;
 		$countrie = (isset($_POST['pais'])) ? $_POST['pais'] : null;
     
+		$musica = (isset($_POST['musica'])) ? $_POST['musica'] : 'off';
+		$podcast = (isset($_POST['podcast'])) ? $_POST['podcast'] : 'off';
+		$audiolibro = (isset($_POST['audiolibro'])) ? $_POST['audiolibro'] : 'off';
+	
 		$rock = (isset($_POST['musicaRock'])) ? $_POST['musicaRock'] : 'off';
 		$pop = (isset($_POST['musicaPop'])) ? $_POST['musicaPop'] : 'off';
 		$banda = (isset($_POST['musicaBanda'])) ? $_POST['musicaBanda'] : 'off';
@@ -24,8 +29,9 @@
 		$terror = (isset($_POST['libroTerror'])) ? $_POST['libroTerror'] : 'off';
 		
 		$info = array(
-						"nombre" => $name,
-						"email" => $mail,
+						"nombreUsuario" => $name,
+						"nombreArtistico" => $artistName,
+						"email" => $email,
 						"pass1" => $psw1,
 						"pass2" => $psw2,
 						"genero" => $gender,
@@ -33,15 +39,15 @@
 					);
 		
 		$gustos = array(
-						"Rock" => $rock,
-						"Pop" => $pop,
-						"Banda" => $banda,
-						"Comedia" => $comedia,
-						"Sociedad" => $sociedad,
-						"Noticias" => $noticias,
-						"Fantasía" => $fantasia,
-						"Ciancia Ficción" => $ficcion,
-						"Terror" => $terror
+						array("M",$musica,"Rock",$rock),
+						array("M",$musica,"Pop",$pop),
+						array("M",$musica,"Banda",$banda),
+						array("P",$podcast,"Comedia",$comedia),
+						array("P",$podcast,"Sociedad",$sociedad),
+						array("P",$podcast,"Noticias",$noticias),
+						array("L",$audiolibro,"Fantasía",$fantasia),
+						array("L",$audiolibro,"Ciencia Ficción",$ficcion),
+						array("L",$audiolibro,"Terror",$terror)
 					);
 
 		$mensaje = registrarUsuario($info,$gustos);
@@ -75,16 +81,17 @@
             <h2>MySound</h2>
         </a>
         <nav class="options">
-                <a class="ml" href="index.html">explorar</a>
+                <a class="ml seleccion" href="#">explorar</a>
 				<a class="ml" href="MisionVision.html">¿Quiénes somos?</a>
 				<a class="ml" href="faqs.html">FAQ'S</a>
 				<a class="ml" href="login.php">Acceso</a>
-				<a class="ml seleccion" href="registro.php">Registro</a>
+				<a class="ml btn-underline" href="registro.php">Registro</a>
+				<a class="ml" href="PerfilUsuario.html">Perfil</a>
         </nav>
     </header>
 	
 	
-	<div id="text" class="centrarInicioDeSesion" style="margin:50px 0px 0px 0px;">
+	<div id="text" class="centrarInicioDeSesion" style="margin:50px 0px 0px 540px;">
 		<h1>Registro</h1>
 	</div>
 
@@ -94,7 +101,6 @@
             
 			
 			<!-- Campo nombre -->
-			
 			<div class="line-input" style="width: 290px; height:35px;">
                 <label class="lnr lnr-user"></label>
                 <input type="text" placeholder="Nombre Usuario" name="nombreUsuario" value="<?php echo isset($_POST['nombreUsuario']) ? $_POST['nombreUsuario'] : ''; ?>">
@@ -112,19 +118,28 @@
 			<!-- Campo contraseña -->
             <div class="line-input" style="width: 290px; height:35px;">
                 <label class="lnr lnr-lock"></label>
-                <input type="password" placeholder="Contraseña" name="password" value="<?php echo isset($_POST['password']) ? $_POST['password'] : ''; ?>">
+                <input type="password" placeholder="Contraseña" name="password">
 				<label style="color:red;">*</label>
 			</div>
 			
 			<!-- Campo confirmación contraseña -->
             <div class="line-input" style="width: 290px; height:35px;">
                 <label class="lnr lnr-lock"></label>
-                <input type="password" placeholder="Confirmar contraseña" name="confirmedPassword" value="<?php echo isset($_POST['confirmedPassword']) ? $_POST['confirmedPassword'] : ''; ?>">
+                <input type="password" placeholder="Confirmar contraseña" name="confirmedPassword" >
 				<label style="color:red;">*</label>
 			</div>
 			
 			
 			</br></br></br>
+			
+			<!-- Campo nombre artístico -->
+			
+			<div class="line-input" style="width: 290px; height:35px;">
+                <label class="lnr lnr-heart"></label>
+				<label style="color:#26283F; margin-left:15px;">@</label>
+                <input type="text" placeholder="Nombre Artístico" id="nombreArtistico" name="nombreArtistico" value="<?php echo isset($_POST['nombreArtistico']) ? $_POST['nombreArtistico'] : ''; ?>">
+				<label style="color:red;">*</label>
+			</div>
 			
 			<!-- Campo sexo -->
 			<div class="line-input" style="width: 400px; height:65px;">
@@ -511,8 +526,7 @@
 	
 	<script>
 	
-    $(function () {
-        $("#musica").click(function () {
+		$("#musica").click(function () {
             if ($(this).is(":checked")) {
                 $("#disabled1").attr('disabled', false);$("#disabled2").attr('disabled', false);$("#disabled3").attr('disabled', false);
             } else {
@@ -535,12 +549,18 @@
                 $("#disabled7").attr('disabled', true);$("#disabled8").attr('disabled', true);$("#disabled9").attr('disabled', true);
 				$("input[name='libroFantasia']:checkbox").prop('checked',false);$("input[name='libroFiccion']:checkbox").prop('checked',false);$("input[name='libroTerror']:checkbox").prop('checked',false);
 			}
-        });	
-    }); 
+        });
+
+		document.getElementById("nombreArtistico").onkeypress = function(e) {
+			var chr = String.fromCharCode(e.which);
+			if (" ´!#$%&'()*+,-./:;<=>?@[\]^_`{|}~ /\"/".indexOf(chr) >= 0){
+				alert(" !#$%&'()*+,-./:;<=>?@[\]^_`{|}~ /\"/: Estos caracteres son inválidos");
+				return false;
+			}
+		};
 
 
-	
-    </script>
+	</script>
 	
 	<img src="resource/images/wave_login.svg">
 </body>

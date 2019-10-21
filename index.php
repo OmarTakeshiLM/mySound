@@ -18,7 +18,7 @@ if(isset($_SESSION['account'])) {
 </head>
 <body>
     <header class="menu">
-        <a href="index.html" class="logo">
+        <a href="index.php" class="logo">
             <h2>MySound</h2>
         </a>
         <nav class="options">

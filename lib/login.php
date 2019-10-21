@@ -27,7 +27,7 @@
 
                 //Redireccionar a la pàgina principal si està corecto todo
                 session_start();
-                $_SESSION['account']= $cor;
+                // $_SESSION['account']= $cor;
 				$_SESSION['idu'] = $idu[0];
                 echo '<script language="javascript">
                     self.location="../PerfilUsuario.php";

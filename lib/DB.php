@@ -34,6 +34,13 @@
             $sentence = $this->pdo->prepare($query);
             $sentence->execute(); 
             // Devuelve array idexado
+            $data = $sentence->fetch(PDO::FETCH_ASSOC);
+            return $data;
+        }
+        public function readAll($query) {
+            $sentence = $this->pdo->prepare($query);
+            $sentence->execute(); 
+            // Devuelve array idexado
             $data = $sentence->fetchAll(PDO::FETCH_CLASS);
             return $data;
         }

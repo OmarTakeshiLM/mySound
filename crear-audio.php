@@ -1,7 +1,7 @@
 <?php
     require_once 'audioController.php';
     session_start();
-    if(!isset($_SESSION['account'])) {
+    if(!isset($_SESSION['idu'])) {
         header('Location: index.php');
     }
     $error = null;
@@ -44,7 +44,7 @@
 </head>
 <body>
     <header class="menu">
-        <a href="index.html" class="logo">
+        <a href="index.php" class="logo">
             <h2>MySound</h2>
         </a>
         <nav class="options">
@@ -60,7 +60,8 @@
     <form method="post" class="grid" enctype="multipart/form-data">
         <div class="file-audio">
             <input id="inputFileAudio" name="archivo" type="file">
-            <span id="btnFileAudio" class="btn">Seleccionar archivo</span>
+            <span id="btnFileAudio" class="btn">Seleccionar archivo de audio</span>
+            <label>El tamaño maximo es de 5MB</label>
         </div>
         <div class="image">
             <img id="containerImage">

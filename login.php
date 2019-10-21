@@ -21,11 +21,11 @@ if(isset($_POST['btn_acceder'])) {
     <body>
 
         <header class="menu">
-            <a href="index.html" class="logo">
+            <a href="index.php" class="logo">
                 <h2>MySound</h2>
             </a>
             <nav class="options">
-                <a class="ml" href="index.html">explorar</a>
+                <a class="ml" href="index.php">explorar</a>
                 <a class="ml" href="MisionVision.html">¿Quiénes somos?</a>
                 <a class="ml" href="faqs.html">FAQ'S</a>
 				<a class="ml seleccion" href="login.php">Acceso</a>
