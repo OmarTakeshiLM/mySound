@@ -102,11 +102,15 @@ $data = obtenerInformacion($_SESSION['idu']);
 		<!-- Reproductor Música -->
 		<div class="music-control">
 			<i class="material-icons">skip_previous</i>
-			<i class="material-icons">play_arrow</i>
+			<i id="playStop" class="material-icons">play_arrow</i>
 			<i class="material-icons">skip_next</i>
 			<div class="progress"></div>
-			<i class="material-icons">volume_up</i>
+			<i id="volume-control" class="material-icons">volume_up</i>
 			<audio id="reproductor"></audio>
+			<div class="container-volume">
+				<i id="volume-mute" class="material-icons">volume_muted</i>
+				<div id="volume" class="volume-range"></div>
+			</div>
 		</div>
 
 		

@@ -41,7 +41,7 @@ CREATE TABLE t5fjs0w (
 
 DROP TABLE IF EXISTS p5trp7m;								/*TABLA playlist*/							
 CREATE TABLE p5trp7m (
-  p5lqm5 INT NOT NULL,											/*id_playlist*/
+  p5lqm5 INT NOT NULL AUTO_INCREMENT,											/*id_playlist*/
   p5uss6 VARCHAR(64) COLLATE utf8_spanish_ci NOT NULL,			/*nombre_playlist*/
   p5mso3 INT NOT NULL,											/*id_track*/
   p5wnq8 VARCHAR(64) COLLATE utf8_spanish_ci NOT NULL,											/*id_usuario*/

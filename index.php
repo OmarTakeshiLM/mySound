@@ -1,7 +1,7 @@
 <?php
 session_start();
 $active = false;
-if(isset($_SESSION['account'])) {
+if(isset($_SESSION['idu'])) {
     $active = true;
 }
 ?>
@@ -56,6 +56,7 @@ if(isset($_SESSION['account'])) {
                 <i class="material-icons">album</i>
                 <i class="material-icons">album</i>
                 <i class="material-icons btn-add-playlist">playlist_add</i>
+                <input type="hidden" value="1">
             </div>
         </div>
         <div class="track">
@@ -265,8 +266,10 @@ if(isset($_SESSION['account'])) {
     <div class="back-modal" style="display: none;"></div>
     <div class="modal" style="display: none;">
         <h3>Añadir track a pLaylist</h3>
-        <input type="text" placeholder="Nombre de playlist">
-        <button>Crear</button>
+        <form method="post" id="form-crear">
+            <input type="text" placeholder="Nombre de playlist" id="input-name-playlist" name="name-playlist">
+            <button type="submit" id="btn-crear" name="btn-create-playlist">Crear</button>
+        </form>
         <div class="container-list">
             <div class="item-list">
                 nombre chido de playlist
@@ -275,13 +278,14 @@ if(isset($_SESSION['account'])) {
         </div>
     </div>
     <!-- Copyright -->
-		<div style="margin-bottom: 6rem;" id="copyright">
-			<div class="container">
-			<h2>CONTACTENOS</h2><hr/>
-				LINEA DE ATENCIÓN: <a href="#" title="telefono movil">(+55) 3328120294</a> | CORREO: <a href="#" title="Correo electronico">viom2_team@hotmail.com</a><br/>
-				COPYRIGHT © 2019
-			</div>
+    <div style="margin-bottom: 6rem;" id="copyright">
+        <div class="container">
+        <h2>CONTACTENOS</h2><hr/>
+            LINEA DE ATENCIÓN: <a href="#" title="telefono movil">(+55) 3328120294</a> | CORREO: <a href="#" title="Correo electronico">viom2_team@hotmail.com</a><br/>
+            COPYRIGHT © 2019
         </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script src="resource/js/index-script.js"></script>
 </body>
 </html>

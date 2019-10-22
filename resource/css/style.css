@@ -5,6 +5,7 @@
     --border-color: #B8B8B8;
     --body-color: #FFFFFF;
     --text-color: #26283F;
+    --value-progress: 0%;
 }
 /* Estilos generales de la página */
 *{
@@ -326,10 +327,53 @@ input::placeholder {
     margin: 10px 2rem;
     height: 4px;
     border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+}
+
+.music-control .progress::after {
+    content: "";
+    background: var(--first-color);
+    height: 4px;
+    width: var(--value-progress);
+    position: absolute;
+    top: 0;
+    left:0;
+    transition: width .3s ease-in-out;
 }
 
 .music-control i {
     color: var(--body-color);
+    cursor: pointer;
+}
+
+.container-volume {
+    background: var(--dark-color);
+    position: absolute;
+    right: 3.5rem;
+    bottom: 1rem;
+    width: 30px;
+    height: 200px;
+    margin-bottom: 4rem;
+    padding: 1.5rem;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+    display: none;
+}
+
+.container-volume i {
+    display: block;
+    width: 24px;
+}
+
+.volume-range {
+    width: 4px;
+    border-radius: 4px;
+    height: 100px;
+    background: var(--border-color);
     cursor: pointer;
 }
 
@@ -685,5 +729,15 @@ input::placeholder {
 
 .container-track-profile .info-track-profile {
     margin-left: 2rem;
+}
+
+.btn-play {
+    padding: .6rem;
+    background: var(--first-color);
+    color: white;
+    font-size: 2rem !important;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: 2rem;
 }
 /* Fin Perfil Usuario */
