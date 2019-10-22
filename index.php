@@ -23,8 +23,8 @@ if(isset($_SESSION['idu'])) {
         </a>
         <nav class="options">
             <a class="ml seleccion" href="index.php">explorar</a>
-            <a class="ml" href="MisionVision.html">¿Quiénes somos?</a>
-            <a class="ml" href="faqs.html">FAQ'S</a>
+            <a class="ml" href="MisionVision.php">¿Quiénes somos?</a>
+            <a class="ml" href="faqs.php">FAQ'S</a>
             <?php
             if($active) {
             ?>

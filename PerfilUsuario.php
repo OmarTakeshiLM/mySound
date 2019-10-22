@@ -1,6 +1,12 @@
 <?php
 require_once 'UserController.php';
 session_start();
+$active = false;
+if(isset($_SESSION['idu'])) {
+    $active = true;
+}else {
+	header('Location: index.php');
+}
 $data = obtenerInformacion($_SESSION['idu']);
 ?>
 <!DOCTYPE html>
@@ -24,10 +30,19 @@ $data = obtenerInformacion($_SESSION['idu']);
             </a>
             <nav class="options">
                 <a class="ml" href="index.php">explorar</a>
-				<a class="ml" href="MisionVision.html">¿Quiénes somos?</a>
-				<a class="ml" href="faqs.html">FAQ'S</a>
-				<a class="ml seleccion" href="PerfilUsuario.php">Perfil</a>
-				<a class="ml" href="logout.php">salir</a>
+				<a class="ml" href="MisionVision.php">¿Quiénes somos?</a>
+				<a class="ml" href="faqs.php">FAQ'S</a>
+				<?php
+				if($active) {
+				?>
+				<a class="ml" href="PerfilUsuario.php">Perfil</a>
+					<a class="ml" href="logout.php">salir</a>
+				<?php 
+				}else {
+				?>
+				<a class="ml" href="login.php">Acceso</a>
+				<a class="ml btn-underline" href="registro.php">Registro</a>
+				<?php } ?>
             </nav>
         </header>
         

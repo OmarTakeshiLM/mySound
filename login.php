@@ -26,8 +26,8 @@ if(isset($_POST['btn_acceder'])) {
             </a>
             <nav class="options">
                 <a class="ml" href="index.php">explorar</a>
-                <a class="ml" href="MisionVision.html">¿Quiénes somos?</a>
-                <a class="ml" href="faqs.html">FAQ'S</a>
+                <a class="ml" href="MisionVision.php">¿Quiénes somos?</a>
+                <a class="ml" href="faqs.php">FAQ'S</a>
 				<a class="ml seleccion" href="login.php">Acceso</a>
                 <a class="ml btn-underline" href="registro.php">Registro</a>
             </nav>
