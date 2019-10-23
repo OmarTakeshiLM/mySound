@@ -44,3 +44,34 @@ btnCrear.addEventListener('click', async (e) => {
         });
     }
 });
+
+addPlaylist.addEventListener('click', async (e) => {
+    e.preventDefault();
+    if(idTrack > 0) {
+        let dataForm = new FormData(formAddPlaylist);
+        dataForm.append('idTrack', idTrack);
+        dataForm.append('add-name-playlist', addNamePlay.value);
+        dataForm.append('add-track-playlist', true);
+        fetch('./playlistController.php', {method: "POST", body: dataForm})
+        .then(function(reponse) {
+            return reponse.text();
+        }).then(function(text) {
+            if(text == 'true') {
+                Swal.fire(
+                    'Operación exitosa!',
+                    'Se ha añadido track a la playlist.',
+                    'success'
+                );
+                backModal.style.display = "none";
+                modal.style.display = "none";
+            }else {
+                console.log(text);
+                Swal.fire(
+                    'Upss!',
+                    'Parece que hay un error.',
+                    'error'
+                ); 
+            }
+        });
+    }
+});

@@ -3,7 +3,7 @@ require_once 'UserController.php';
 session_start();
 $active = false;
 if(isset($_SESSION['idu'])) {
-    $active = true;
+    $active = true;	
 }else {
 	header('Location: index.php');
 }
@@ -74,7 +74,7 @@ $data = obtenerInformacion($_SESSION['idu']);
 		
 			</br></br>
 			
-			<textarea id="C" class="user-Biography" style="font-size:15px;font-family:'Open Sans','Roboto',sans-serif;" spellcheck="false" disabled="true" >Hello World, my name is Joseph and I'm hopeful you enjoy my music. I'm really joy to share with you my music and my wich is to be hte greatest artist of rap.
+			<textarea id="C" class="user-Biography" style="font-size:15px;font-family:'Open Sans','Roboto',sans-serif;" spellcheck="false" disabled="true" ><?php echo isset($data['u5rem2']) ? $data['u5rem2'] : null ?>
 			</textarea>
 		
 		</div>
@@ -178,8 +178,5 @@ $data = obtenerInformacion($_SESSION['idu']);
 				}
 			}
 		</script>
-		
-		
-		
     </body>
 </html>

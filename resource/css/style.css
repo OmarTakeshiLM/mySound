@@ -667,14 +667,14 @@ input::placeholder {
 }
 .user-Info button{
 	width: 35px;
-    height: 27px;
-    background:white;
+    height: 35px;
+    background: var(--body-color);
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
 	border-radius: 50px;
-	border-style:white;
-	margin-left:1px;
+	border: 0;
+    box-shadow: 0 3px 16px rgba(0,0,0,0.16);
 }
 .user-Info label{
     color: var(--first-color);
@@ -686,7 +686,8 @@ input::placeholder {
 	width:240px;
 	-webkit-text-fill-color: #26283F;
 	font-size:17px;
-	font-weight:bold;
+    font-weight:bold;
+    resize: none;
 }
 .user-Info-title{
 	color:#26283F; 
@@ -714,7 +715,7 @@ input::placeholder {
 .container-User-PlayList{
 	margin-top:-730px;
 	margin-left:900px;
-	width:540px;
+	width:449px;
 	height:730px;	
 }
 .music-title{

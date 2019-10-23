@@ -2,7 +2,11 @@
 
 	session_start();
 	
-	include('UserData.php');
+    include('UserData.php');
+    
+    if(isset($_SESSION['idu'])) {
+        header('Location: index.php');
+    }
 	
 	if(isset($_POST['btn_registrar'])) {
 		

@@ -104,3 +104,10 @@ function guardarTrack($data) {
         $db->insert($query);
     }
 }
+
+function obtenerPlaylist($usuario) {
+    $query = "SELECT * FROM p5trp7m WHERE p5wnq8='".$usuario."'";
+    $db = new DB();
+    $reply = $db->read($query);
+    return $reply;
+}

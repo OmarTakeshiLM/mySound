@@ -271,10 +271,21 @@ if(isset($_SESSION['idu'])) {
             <button type="submit" id="btn-crear" name="btn-create-playlist">Crear</button>
         </form>
         <div class="container-list">
-            <div class="item-list">
-                nombre chido de playlist
-                <button>Añadir</button>
-            </div>
+            <?php
+                require_once 'audioController.php';
+                $reply = obtenerPlaylist($_SESSION['idu']);
+                if($reply) {
+                    echo '
+                    <form method="POST" class="item-list" id="formAddPlaylist">
+                        '.$reply['p5uss6'].'
+                        <input type="hidden" id="addNamePlay" value="'.$reply['p5uss6'].'" name="add-name-playlist">
+                        <button id="addPlaylist" type="submit" name="add-track-playlist">Añadir</button>
+                    </form>
+                    ';
+                }else {
+                    echo '<span>Aun no tienes playlist creadas</span>';
+                }
+            ?>
         </div>
     </div>
     <!-- Copyright -->

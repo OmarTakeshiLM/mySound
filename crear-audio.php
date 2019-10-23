@@ -59,9 +59,9 @@
     <h1 class="center padded">Creación de música</h1>
     <form method="post" class="grid" enctype="multipart/form-data">
         <div class="file-audio">
-            <input id="inputFileAudio" name="archivo" type="file">
+            <input id="inputFileAudio" name="archivo" accept="audio/mp3, .wav" type="file">
             <span id="btnFileAudio" class="btn">Seleccionar archivo de audio</span>
-            <label>El tamaño maximo es de 5MB</label>
+            <label style="margin-left: 1rem">El tamaño maximo es de 5MB</label>
         </div>
         <div class="image">
             <img id="containerImage">

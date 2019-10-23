@@ -1,9 +1,7 @@
 <?php
-// session_start();
-if(isset($_POST['btn_acceder'])) {
-    // $_SESSION['account'] = $_POST['correo'];
-    // header('Location: ');
-    echo 'Consulta';
+session_start();
+if(isset($_SESSION['idu'])) {
+    header('Location: index.php');
 }
 ?>
 <!DOCTYPE html>
