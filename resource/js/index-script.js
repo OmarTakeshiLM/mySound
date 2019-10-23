@@ -3,6 +3,7 @@ let backModal = document.querySelector('.back-modal');
 let modal = document.querySelector('.modal');
 let btnCrear = document.getElementById('btn-crear');
 let formCrear = document.getElementById('form-crear');
+let addPlaylist = document.getElementById('addPlaylist');
 
 for (const btn of btnsAddPlaylist) {
     btn.addEventListener('click', e => {
@@ -22,6 +23,7 @@ btnCrear.addEventListener('click', async (e) => {
     if(idTrack > 0) {
         let dataForm = new FormData(formCrear);
         dataForm.append('idTrack', idTrack);
+        dataForm.append('btn-create', true);
         fetch('./playlistController.php', {method: "POST", body: dataForm})
         .then(function(reponse) {
             return reponse.text();
@@ -35,6 +37,7 @@ btnCrear.addEventListener('click', async (e) => {
                 backModal.style.display = "none";
                 modal.style.display = "none";
             }else {
+                console.log(text);
                 Swal.fire(
                     'Upss!',
                     'Parece que hay un error.',
