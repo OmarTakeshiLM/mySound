@@ -106,8 +106,8 @@ function guardarTrack($data) {
 }
 
 function obtenerPlaylist($usuario) {
-    $query = "SELECT * FROM p5trp7m WHERE p5wnq8='".$usuario."'";
+    $query = "SELECT * FROM p5trp7m WHERE p5wnq8='".$usuario."' GROUP BY p5uss6";
     $db = new DB();
-    $reply = $db->read($query);
+    $reply = $db->readAll($query);
     return $reply;
 }

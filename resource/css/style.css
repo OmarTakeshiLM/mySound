@@ -77,128 +77,6 @@
 /* Fin Disco */
 
 
-/* Formulario */
-
-.container-form{
-    width: 100%;
-	height: 150%;
-    max-width: 500px;
-	max-height: 2000px;
-	background: #fff;
-    padding-bottom: 0px;
-    overflow: hidden;
-}
-
-
-.line-input{
-    max-width: 400px;
-    display: flex;
-    border-bottom: 2px solid #DFDCDB;
-    margin: auto;
-    margin-top: 40px;
-    padding: 6px;
-    position: relative;
-}
-
-.line-input input{
-    border-style: none;
-    outline: 0px;
-    margin-left: 10px;
-    font-size: 16px;
-    width: 100%;
-    font-weight: 300;
-}
-
-.line-boxes{
-    max-width: 200px;
-    display: flex;
-	margin-top: 10px;
-	margin-right: 50px;
-    padding: 6px;
-    position: relative;
-}
-
-.line-input label{
-    font-size: 20px;
-    position: relative;
-    top: -4px;
-    color: var(--first-color);
-}
-
-.form button{
-    width: 300px;
-    height: 50px;
-    display: block;
-    margin: auto;
-    margin-top: 50px;
-    color: white;
-    background: var(--first-color);
-    border-style: none;
-    outline: 0px;
-    border-radius: 50px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.form button:hover{
-    opacity: .9;
-}
-
-.form button label{
-    position: relative;
-    left: 50px;
-    font-size: 10px;
-    cursor: pointer;
-}
-
-.active{
-    border-bottom: 4px solid #5584FF;
-}
-
-
-/*Fin Formulario */
-
-.label-input1 {
-	margin-left: 5px;
-    width: 100%;
-}
-
-
-.countrie-list{
-	width: 500px;
-    height: auto;
-    display: block;
-    margin: auto;	
-}
-
-.config-Field{
-    border: 0;
-}
-
-.container-image{
-	width: 600px;
-    height: 850px;
-	left: 10%;
-	top:20%;
-}
-
-/* resize images */
-.container-image  img {
-    width: 100%;
-    height: 100%;
-	position:relative;
-	left: 70px;
-	top: 70px;
-}
-
-/* Centrar el inicio de sesión*/
-.centrarInicioDeSesion{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
 header{
     background-color: RGBA(30,30,30,0.05);
 }
@@ -533,6 +411,7 @@ input::placeholder {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 1rem;
 }
 
 .modal .container-list button {
@@ -566,7 +445,7 @@ input::placeholder {
 	align-items:center;
 }
 
-.container-form1 .line-input{
+.line-input{
     display: flex;
     margin: auto;
     margin-top: 20px;
@@ -578,7 +457,7 @@ input::placeholder {
     margin-right:25px;
 }
 
-.container-form1  .line-input input{
+.line-input input{
     border-style: none;
     outline: 0px;
     margin-left: 10px;
@@ -638,57 +517,75 @@ input::placeholder {
     border-bottom: 4px solid #5584FF;
 }
 
-
-.button-form2{
-	padding: 0px 0px 0px 0px;
-}
-
 .mensajeAdvertencia{
     color: red;
 	font-style: italic;
 	font-size:14px;
 	position:absolute;
 }
+.countrie-list{
+	width: 300px;
+    height: auto;
+    display: block;
+    margin: auto;	
+}
 
 /*Fin Formulario Registro*/
+
+
+
+/* Formulario Log in*/
+.container-form2{
+	height:200px;
+	width: 200px;
+	padding:20px 0px 0px 400px;
+	justify-content: center;
+	align-items:center;
+}
+/* Fin Formulario Log in*/
+
+
+
+/* Perfil Uuario */
 
 .user-Info{
 	display: block;
 	margin-left:30px;
 	margin-top:40px;
-	width:290px;
-	height:550px;
-}
-.user-Info img,
-.container-track-profile img{
-	width:200px;
-    height:200px;
-    object-fit: cover;
+	width:270px;
+	height:790px;	
 }
 .user-Info button{
-	width: 35px;
-    height: 35px;
+	width: 30px;
+    height: 30px;
     background: var(--body-color);
     font-size: 16px;
-    font-weight: bold;
     cursor: pointer;
 	border-radius: 50px;
-	border: 0;
-    box-shadow: 0 3px 16px rgba(0,0,0,0.16);
+	position:absolute;
+	margin-top:7px;
+	margin-left:5px;
 }
 .user-Info label{
     color: var(--first-color);
 }
-.user-Info-input{
+.user-Info textarea{
 	background: transparent;
+	border: 1px solid #C9C9C9;
     border-radius: 30px;
 	height:42px;
-	width:240px;
-	-webkit-text-fill-color: #26283F;
+	width:200px;
 	font-size:17px;
-    font-weight:bold;
-    resize: none;
+	resize: none;
+	overflow: auto;
+	margin-top:2px;	
 }
+
+.user-Info button:hover{
+  border: 1px solid #888;
+  background-color: #ddd;
+}
+
 .user-Info-title{
 	color:#26283F; 
 	font-weight:bold; 
@@ -698,7 +595,7 @@ input::placeholder {
 	background: transparent;
     border-radius: 30px;
 	width:290px;
-	height:250px;
+	height:260px;
 	margin-top:-10px;
 	-webkit-text-fill-color: #26283F;
 	font-size:15px;
@@ -707,23 +604,24 @@ input::placeholder {
 	text-justify: inter-word;
 }
 .container-User-Tracks{
-	margin-top:-550px;
-	margin-left:330px;
-	width:540px;
+	margin-left:300px;
+	width:480px;
 	height:730px;
+	overflow-x: hidden;	
 }
 .container-User-PlayList{
-	margin-top:-730px;
-	margin-left:900px;
-	width:449px;
-	height:730px;	
+	margin-left:840px;
+	width:430px;
+	height:730px;
+	overflow-x: hidden;	
 }
 .music-title{
 	color:#26283F; 
 	font-size:25px;  
 }
 .container-track-profile {
-    padding: 1rem 1.5rem;
+    width:450px;
+	padding: 1rem 1.5rem;
     box-shadow: 0 1px 3px rgba(0,0,0,0.40);
     display: flex;
 }
@@ -733,12 +631,46 @@ input::placeholder {
 }
 
 .btn-play {
-    padding: .6rem;
+    width: 2rem;
+    height: 2rem;
     background: var(--first-color);
-    color: white;
-    font-size: 2rem !important;
     border-radius: 50%;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    color: var(--body-color);
     cursor: pointer;
-    margin-top: 2rem;
 }
+
+.container-playlist-profile {
+    width:450px;
+	padding: 1rem 1.5rem;
+    display: flex;
+	border-bottom: 2px solid #DFDCDB;
+}
+
+.container-playlist-profile .info-playlist-profile {
+    margin-left: 2rem;
+}
+
+.btn_delete_t_p{
+	width: 35px;
+    height: 35px;
+    background: #FF7575;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+	border-radius: 50px;
+	border: 0;
+}
+
+.profilePicture img{
+	width:200px;
+    height:200px;
+}
+
+.profilePicture input file submit{
+	
+}
+
 /* Fin Perfil Usuario */
