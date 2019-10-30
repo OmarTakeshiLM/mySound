@@ -65,9 +65,8 @@
 
     function obtenerInformacion($usuario) {
         $db = new DB();
-        $query = "SELECT u5hwo4,u5asd4,u5pyt0,u5rem2,u5ybn4,u5wfj3 FROM u5lwe5a WHERE u5wkx0='$usuario';";
+        $query = "SELECT u5hwo4,u5asd4,u5pyt0,u5rem2,u5ybn4 FROM u5lwe5a WHERE u5wkx0='$usuario';";
         $reply = $db->read($query);
-        // var_dump($reply[0]);
         return $reply;
     }
 	

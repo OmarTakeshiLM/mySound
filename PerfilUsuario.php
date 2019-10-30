@@ -9,7 +9,6 @@
 		header('Location: index.php');
 	}
 	$data = obtenerInformacion($_SESSION['idu']);
-	
 ?>
 
 <!DOCTYPE html>
@@ -78,7 +77,7 @@
 				?>
 				
 				<div class="profilePicture">
-					<img src="<?php if($data['u5wfj3']){ echo $data['u5wfj3']; }else{  echo 'resource/images/defaultPicture.jpg';} ?>">
+					<img src="<?php if(isset($data['u5wfj3'])){ echo $data['u5wfj3']; }else{  echo 'resource/images/defaultPicture.jpg';} ?>">
 				</div>
 				
 				</br>
@@ -501,11 +500,9 @@
 							
 							echo '
 								<div class="container-playlist-profile" style="margin-top: 1rem;">
-									<img style="object-fit: cover; width: 120px; height: 120px;" src="resource/images/playlist.jpg">
 									<div class="info-playlist-profile">
 										<h3>'.$playlist->p5uss6.'</h3>
 										<p>Tracks: '.$cont.'</p>
-										<a href="#"><i class="btn-play material-icons">play_arrow</i></a>
 										
 										<form method="POST" style="margin-left:200px; margin-top:-40px;" onsubmit="return confirm(\'¿Estás seguro quieres eliminar este playlist?\');">
 											<button name="EliminaP" class="btn_delete_t_p" type="submit" value="'.$playlist->p5lqm5.'" title="Eliminar"><label class="lnr lnr-trash"></label></button>
