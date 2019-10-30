@@ -57,7 +57,7 @@
     </header>
     <p class="alert-error"><?php echo isset($error) ? $error : null; ?></p>
     <h1 class="center padded">Creación de música</h1>
-    <form method="post" class="grid" enctype="multipart/form-data">
+    <form method="post" class="grid" enctype="multipart/form-data" style="margin-bottom: 2rem;">
         <div class="file-audio">
             <input id="inputFileAudio" name="archivo" accept="audio/mp3, .wav" type="file">
             <span id="btnFileAudio" class="btn">Seleccionar archivo de audio</span>

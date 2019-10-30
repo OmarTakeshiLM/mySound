@@ -8,11 +8,13 @@
 	}else {
 		header('Location: index.php');
 	}
-	$data = obtenerInformacion($_SESSION['idu']);
+	try {
+		$data = obtenerInformacion($_SESSION['idu']);
+	}catch(Exception $e) {}
 ?>
 
 <!DOCTYPE html>
-<html lang="es" id="userprofile">
+<html lang="es">
     
 	<head>
         <meta charset="UTF-8">
@@ -494,7 +496,7 @@
 							}
 							
 							if (isset($_POST['EliminaP'])) {
-								borrarPlaylist();
+								borrarPlaylist($_SESSION['idu']);
 								echo "<meta http-equiv='refresh' content='0'>";
 							}
 							
@@ -505,7 +507,7 @@
 										<p>Tracks: '.$cont.'</p>
 										
 										<form method="POST" style="margin-left:200px; margin-top:-40px;" onsubmit="return confirm(\'¿Estás seguro quieres eliminar este playlist?\');">
-											<button name="EliminaP" class="btn_delete_t_p" type="submit" value="'.$playlist->p5lqm5.'" title="Eliminar"><label class="lnr lnr-trash"></label></button>
+											<button name="EliminaP" class="btn_delete_t_p" type="submit" value="'.$playlist->p5uss6.'" title="Eliminar"><label class="lnr lnr-trash"></label></button>
 										</form>
 										
 									</div>

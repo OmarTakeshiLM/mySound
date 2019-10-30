@@ -36,9 +36,9 @@
 		
 	}
 	
-	function borrarPlaylist(){
+	function borrarPlaylist($usuario){
 		
-		$id = $_POST['EliminaP'];
+		$nombre_playlist = $_POST['EliminaP'];
 	
 		$servername = 'localhost';
 		$database = 'b5ojcad';
@@ -49,8 +49,8 @@
 		mysqli_set_charset($conexion, 'utf8');
 		
 		
-		$query = "DELETE FROM p5trp7m WHERE p5lqm5 = '$id'";
-		mysqli_query($conexion,$query); 
+		$query = "DELETE FROM p5trp7m WHERE p5uss6 = '$nombre_playlist' AND p5wnq8 = '$usuario'";
+		mysqli_query($conexion,$query);
 		mysqli_close($conexion);
 		
 	}
