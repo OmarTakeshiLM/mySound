@@ -505,6 +505,7 @@
 									<div class="info-playlist-profile">
 										<h3>'.$playlist->p5uss6.'</h3>
 										<p>Tracks: '.$cont.'</p>
+										<a href="biblioteca.php">Ir a biblioteca</a>
 										
 										<form method="POST" style="margin-left:200px; margin-top:-40px;" onsubmit="return confirm(\'¿Estás seguro quieres eliminar este playlist?\');">
 											<button name="EliminaP" class="btn_delete_t_p" type="submit" value="'.$playlist->p5uss6.'" title="Eliminar"><label class="lnr lnr-trash"></label></button>

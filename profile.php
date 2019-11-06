@@ -68,7 +68,7 @@ if(isset($_SESSION['idu'])) {
 			<span style="margin-left:10px;font-size:16px;font-family:'Open Sans','Roboto',sans-serif;">Biografía</span>  
 		
 			
-			<textarea class="user-Biography" style="height:290px; width:230px;" disabled="true" spellcheck="false">
+			<textarea class="user-Biography" style="height:290px; width:200px;" disabled="true" spellcheck="false">
                 <?php echo $biografia[0] ?>
 			</textarea>
 		

@@ -554,7 +554,7 @@ input::placeholder {
 	display: block;
 	margin-left:30px;
 	margin-top:40px;
-	width:270px;
+	width:268px;
 	height:790px;	
 }
 .user-Info button{
@@ -596,7 +596,7 @@ input::placeholder {
 .user-Biography{
 	background: transparent;
     border-radius: 30px;
-	width:290px;
+	width:268px;
 	height:260px;
 	margin-top:-10px;
 	-webkit-text-fill-color: #26283F;

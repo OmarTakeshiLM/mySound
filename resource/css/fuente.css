@@ -1,0 +1,131 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+    /*body {
+        margin-bottom: 200%;
+        } */
+        
+        /* Box styles */
+
+
+
+/*Esto es para la ventana de ¨layList*/
+
+div#backgrounPlayList{
+    margin:auto;
+    background-color: #ffffff;
+    width: 1350px;
+    height: 720px;
+}
+
+.separadorInvisible1{
+    height: 20px;
+}
+
+.separadorInvisible2{
+    height: 80px;
+}
+
+div#descripciontrack{
+    margin-left: 100px;
+    width: 400px;
+    height: 400px;
+    background-color: #2F3559;
+}
+
+.discooo {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background: var(--first-color);
+    border-radius: 50%;
+}
+
+.discooo::after {
+    content: "";
+    width: 2.3rem;
+    height: 2.3rem;
+    background: var(--body-color);
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+/* Imagen de logo de musica */
+
+img{
+    margin-left: 25px;
+    margin-right: 25px;
+    width: 350px;
+    height: 350px;
+    transition: all 0.5s linear;
+}
+
+img:hover{
+    transform: scale(0.95);
+    border-radius: 10px;
+}
+
+.textoAnimado{
+    margin: auto;
+    width: 350px;
+    height: 128px;
+    font-family: Arial, Helvetica, sans-serif;
+    size: 24px;
+    letter-spacing: 1.5;
+    text-align: center;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+.textoAnimado2{
+   
+    font-family: Arial, Helvetica, sans-serif;
+    size: 24px;
+    letter-spacing: 1.5;
+    text-align: center;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background: black;
+}
+.textoAnimado3{
+   
+    font-family: Arial, Helvetica, sans-serif;
+    size: 24px;
+    letter-spacing: 1.5;
+    text-align: center;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background: black;
+}
+
+.copyrightz{
+    margin-top: -60px;
+	letter-spacing: 1px;
+	text-align: center;
+    color: #737576;
+    z-index: -1;
+}
+
+.espacioEnListaParaPlayList{
+    
+    width: 325px;
+    height: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    size: 24px;
+    letter-spacing: 1.5;
+    text-align: center;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background: black;
+
+}
+
