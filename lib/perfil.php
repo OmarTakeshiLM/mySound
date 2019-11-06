@@ -23,15 +23,16 @@
         }
         //echo $contT."<br>";
 //ARREGLO DE PLAYLIST
-        //Hacemos la consulta Nombre de la playlist
-        $sql = "SELECT p5uss6,p5lqm5 FROM p5trp7m WHERE p5wnq8= '$artist'";
+        //Hacemos la consulta Nombre de la playlist, id playlist
+        $sql = "SELECT DISTINCTROW p5uss6 FROM p5trp7m WHERE p5wnq8= '$artist'";
         //Hacemos la consulta y mostramos resultados
         $listaPlay = mysqli_query($conn,$sql);
         $contP = mysqli_num_rows($listaPlay);
         $i = 0;
         while($fila = mysqli_fetch_row($listaPlay)){
             //Consultamos el numero de tracks, para eso hacemos una consulta usando el ide de la playlist
-            $sql = "SELECT p5mso3 FROM p5trp7m WHERE p5wnq8= '$artist'";
+            //nombre de la playlist, id del track
+            $sql = "SELECT p5mso3 FROM p5trp7m WHERE p5wnq8= '$artist' AND p5uss6='$fila[0]'";
             $numT = mysqli_query($conn,$sql);
             $arrayPlay[$i]= array($fila[0],mysqli_num_rows($numT));
             $i++;
