@@ -366,7 +366,7 @@ input::placeholder {
 
 .modal {
     width: 320px;
-    height: 300px;
+    height: 350px;
     background: var(--body-color);
     position: fixed;
     top: 0;
@@ -405,6 +405,8 @@ input::placeholder {
 
 .modal .container-list {
     margin-top: 2rem;
+    overflow-y: scroll;
+    height: 180px;
 }
 
 .modal .container-list .item-list {

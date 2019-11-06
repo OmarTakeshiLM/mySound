@@ -3,7 +3,7 @@ let backModal = document.querySelector('.back-modal');
 let modal = document.querySelector('.modal');
 let btnCrear = document.getElementById('btn-crear');
 let formCrear = document.getElementById('form-crear');
-let addPlaylist = document.getElementById('addPlaylist');
+let addsPlaylist = document.getElementsByClassName('addPlaylist');
 
 for (const btn of btnsAddPlaylist) {
     btn.addEventListener('click', e => {
@@ -36,8 +36,8 @@ btnCrear.addEventListener('click', async (e) => {
                 );
                 backModal.style.display = "none";
                 modal.style.display = "none";
+                window.location = "index.php";
             }else {
-                console.log(text);
                 Swal.fire(
                     'Upss!',
                     'Parece que hay un error.',
@@ -48,33 +48,38 @@ btnCrear.addEventListener('click', async (e) => {
     }
 });
 
-addPlaylist.addEventListener('click', async (e) => {
-    e.preventDefault();
-    if(idTrack > 0) {
-        let dataForm = new FormData(formAddPlaylist);
-        dataForm.append('idTrack', idTrack);
-        dataForm.append('add-name-playlist', addNamePlay.value);
-        dataForm.append('add-track-playlist', true);
-        fetch('./playlistController.php', {method: "POST", body: dataForm})
-        .then(function(reponse) {
-            return reponse.text();
-        }).then(function(text) {
-            if(text == 'true') {
-                Swal.fire(
-                    'Operación exitosa!',
-                    'Se ha añadido track a la playlist.',
-                    'success'
-                );
-                backModal.style.display = "none";
-                modal.style.display = "none";
-            }else {
-                console.log(text);
-                Swal.fire(
-                    'Upss!',
-                    'Parece que hay un error.',
-                    'error'
-                ); 
-            }
-        });
-    }
-});
+for (const addPlaylist of addsPlaylist) {
+    addPlaylist.addEventListener('click', async (e) => {
+        e.preventDefault();
+        if(idTrack > 0) {
+            let dataForm = new FormData();
+            dataForm.append('idTrack', idTrack);
+            dataForm.append('add-name-playlist', addPlaylist.previousElementSibling.value);
+            dataForm.append('add-track-playlist', true);
+            fetch('./playlistController.php', {method: "POST", body: dataForm})
+            .then(function(reponse) {
+                return reponse.text();
+            }).then(function(text) {
+                if(text == 'true') {
+                    Swal.fire(
+                        'Operación exitosa!',
+                        'Se ha añadido track a la playlist.',
+                        'success'
+                    );
+                    backModal.style.display = "none";
+                    modal.style.display = "none";
+                }else {
+                    Swal.fire(
+                        'Upss!',
+                        text,
+                        'error'
+                    ); 
+                }
+            });
+        }
+    }); 
+}
+
+function perfil(elmnt) {
+    window.location = "profile.php?artista="+elmnt.textContent;
+}

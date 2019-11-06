@@ -1,5 +1,7 @@
 <?php
 require_once 'UserController.php';
+require_once 'lib/busqueda.php';
+
 session_start();
 $active = false;
 if(isset($_SESSION['idu'])) {
@@ -40,33 +42,38 @@ if(isset($_SESSION['idu'])) {
             
         </nav>
     </header>
-    <form class="search-content">
-        <input type="text" name="search" placeholder="Escribe aquí tu búsqueda" autocomplete="off">
+    <form class="search-content" method="get" action="index.php">
+        <input type="text" name="search" placeholder="Buscar artista, canción o género." autocomplete="off" style="border-bottom: 1px solid #B4B0AF;">
         <button class="material-icons" type="submit">search</button>
+        <p style="font-size:12px; color: RGBA(55,55,55,.5);">Ejemplo de búsqueda por género: Pop,Rock,Electónica,Reggae, Instrumental,etc</p>
     </form>
     <div class="tracks-group">
-        <?php
-            $tracks = obtenerTracksExplorer();
-            foreach($tracks as $track) {
-                // var_dump($track);
-                echo '
-                <div class="track">
-                    <div class="disc" style="background-image: url('.$track->t5jds0.'); background-size: cover;"></div>
-                    <div class="middle-info">
-                        <h3>'.$track->t5prc4.'</h3>
-                        <a href="#">'.$track->t5qwd7.'</a>
-                        <i class="btn-play start material-icons">play_arrow</i>
-                        <input class="path" type="hidden" value="'.$track->t5tlc3.'">
+        <?php       
+            $resultados = count($tracks);
+            if($resultados>0){
+                for($i=0;$i<$cont;$i++){
+                    // var_dump($track); t5tlc3 es la direccion     |   t5isk2 es la playlist
+                    echo '
+                    <div class="track">
+                        <div class="disc" style="background-image: url('.$tracks[$i][0].'); background-size: cover;"></div>
+                        <div class="middle-info">
+                            <h3>'.$tracks[$i][1].'</h3>
+                            <p style="cursor : pointer " onclick="perfil(this)">'.$tracks[$i][2].'</p>
+                            <i class="btn-play start material-icons">play_arrow</i>
+                            <input class="path" type="hidden" value="'.$tracks[$i][3].'">
+                        </div>
+                        <div class="actions">
+                            <i class="material-icons">album</i>
+                            <i class="material-icons">album</i>
+                            <i class="material-icons">album</i>
+                            <i class="material-icons btn-add-playlist">playlist_add</i>
+                            <input type="hidden" value="'.$tracks[$i][4].'">
+                        </div>
                     </div>
-                    <div class="actions">
-                        <i class="material-icons">album</i>
-                        <i class="material-icons">album</i>
-                        <i class="material-icons">album</i>
-                        <i class="material-icons btn-add-playlist">playlist_add</i>
-                        <input type="hidden" value="'.$track->t5isk2.'">
-                    </div>
-                </div>
-                ';
+                    ';
+                }
+            }else{
+                echo "<h3>Sin resultados encontrados</h3>";
             }
         ?>
     </div>
@@ -85,26 +92,32 @@ if(isset($_SESSION['idu'])) {
     <div class="back-modal" style="display: none;"></div>
     <div class="modal" style="display: none;">
         <h3>Añadir track a pLaylist</h3>
+        <?php if(isset($_SESSION['idu'])) { ?>
         <form method="post" id="form-crear">
             <input type="text" placeholder="Nombre de playlist" id="input-name-playlist" name="name-playlist">
             <button type="submit" id="btn-crear" name="btn-create-playlist">Crear</button>
         </form>
+        <?php } ?>
         <div class="container-list">
             <?php
-                require_once 'audioController.php';
-                $playlists = obtenerPlaylist($_SESSION['idu']);
-                if($playlists) {
-                    foreach($playlists as $playlist) {
-                        echo '
-                        <form method="POST" class="item-list" sytle="margin-bottom: 1rem;" id="formAddPlaylist">
-                            '.$playlist->p5uss6.'
-                            <input type="hidden" id="addNamePlay" value="'.$playlist->p5uss6.'" name="add-name-playlist">
-                            <button id="addPlaylist" type="submit" name="add-track-playlist">Añadir</button>
-                        </form>
-                        ';
+                if(isset($_SESSION['idu'])) {
+                    require_once 'audioController.php';
+                    $playlists = obtenerPlaylist($_SESSION['idu']);
+                    if($playlists) {
+                        foreach($playlists as $playlist) {
+                            echo '
+                            <form method="POST" class="item-list" sytle="margin-bottom: 1rem;" class="formAddPlaylist">
+                                <p>'.$playlist->p5uss6.'</p>
+                                <input type="hidden" class="addsNamePlay" value="'.$playlist->p5uss6.'" name="add-name-playlist">
+                                <button class="addPlaylist" type="submit" name="add-track-playlist">Añadir</button>
+                            </form>
+                            ';
+                        }
+                    }else {
+                        echo '<span>Aun no tienes playlist creadas</span>';
                     }
                 }else {
-                    echo '<span>Aun no tienes playlist creadas</span>';
+                    echo '<p><a href="login.php">Accede</a> a tu cuenta para poder crear playlists.</p>';
                 }
             ?>
         </div>
