@@ -49,9 +49,9 @@ if(isset($_SESSION['idu'])) {
 					<!-- Sidebar -->
 						<div id="sidebar" class="3u">
 							<section>
-									<h2>MISION</h2>
+									<h2>SERVICIOS</h2>
 								<p><a href="cuidamos.html" class="image full"><img src="resource/images/img-mision.svg" alt="" /></a>
-								<p> Ofrecer la oportunidad de subir y escuchar música de manera gratuita. </p>
+								<p>Escucha la musica de artistas independientes y sube la tuya, y deja al mundo conocer tu propio arte.</p>
 							</section>
 						</div>
 					<!-- Sidebar -->
@@ -59,9 +59,9 @@ if(isset($_SESSION['idu'])) {
 					<!-- Content -->
 						<div id="content" class="6u skel-cell-important">
 							<section>
-									<h2 style="font-size:32px; margin-bottom:30px;">¿QUIENES SOMOS?</h2>
+									<h2 style="font-size:32px; margin-bottom:30px;">MISION</h2>
 								<p><a href="#" class="image full"><img src="resource/images/img-somos.svg" alt=""></a></p>
-								<p>el Banco por Internet es la forma más práctica, cómoda y segura para manejar tus cuentas con absoluta confidencialidad desde tu casa u oficina, en un ambiente más agradable.</p>
+								<p>Ofrecer la oportunidad de subir y escuchar música de manera gratuita.</p>
 							</section>
 						</div>
 					<!-- /Content -->
@@ -71,7 +71,7 @@ if(isset($_SESSION['idu'])) {
 							<section>
 									<h2>VISION</h2>
 								<p><a href="cuidamos.html" class="image full"><img src="resource/images/img-vision.svg" alt="" /></a>
-								<p>Para su comodidad, solicite el Servicio de Domiciliación de Chequeras directamente a su Ejecutivo de Negocios en la Oficina de Mercantil Banco Universal donde la empresa mantiene la cuenta.</p>
+								<p>Ser la empresa número 1 a nivel mundial en servicios de streaming musical gratuito.</p>
 								<ul class="default">
 								</ul>
 							</section>
